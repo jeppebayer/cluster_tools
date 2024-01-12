@@ -92,17 +92,18 @@ make_directories() {
             # Inserts function I use a lot
             echo -e "def species_abbreviation(species_name: str) -> str:\n\t\"\"\"Creates species abbreviation from species name.\n\n\t:param str species_name:\n\t\tSpecies name written as *genus* *species*\"\"\"\n\tgenus, species = species_name.replace(' ', '_').split('_')\n\tgenus = genus[0].upper() + genus[1:3]\n\tspecies = species[0].upper() + species[1:3]\n\treturn genus + species" >> "$workflow_name"/workflow_source/workflow_templates.py
             echo -e "#!/bin/env python3\nfrom gwf import Workflow\nfrom gwf.workflow import collect\nimport os, yaml, glob, sys\nfrom workflow_templates import *" > "$workflow_name"/workflow_source/workflow_source.py
+            echo -e "# The name of the relevant project account.\naccount: \n# Name of species being analyzed\nspecies_name: \n# Directory for intermediary files.\nworking_directory_path: \n# Directory for final output files.\noutput_directory_path: " > "$workflow_name"/workflow_source/template.config.yaml
         fi
         mkdir -m 774 "$workflow_name"/"$part_name"
         if [ -n "$divider_name" ]; then
             mkdir -m 774 "$workflow_name"/"$part_name"/"$divider_name"
             mkdir -m 774 "$workflow_name"/"$part_name"/"$divider_name"/"$species_name"
-            echo -e "# The name of the relevant project account.\naccount: \n# Name of species being analyzed\nspecies_name: ${species_name/_/\ }\n# Directory for intermediary files.\nworking_directory_path: \n# Directory for final output files.\noutput_directory_path: " > "$workflow_name"/"$part_name"/"$divider_name"/"$species_name"/"$(species_abbreviation "$species_name")".config.yaml
+            echo -e "# The name of the relevant project account.\naccount: EcoGenetics\n# Name of species being analyzed\nspecies_name: ${species_name/_/\ }\n# Directory for intermediary files.\nworking_directory_path: \n# Directory for final output files.\noutput_directory_path: " > "$workflow_name"/"$part_name"/"$divider_name"/"$species_name"/"$(species_abbreviation "$species_name")".config.yaml
             echo -e "#!/bin/env python3\nimport sys, os\nsys.path.insert(0, os.path.realpath('../../../workflow_source/'))\nfrom workflow_source import *\n\ngwf = " > "$workflow_name"/"$part_name"/"$divider_name"/"$species_name"/workflow.py
             echo "New workflow has been created..."
         else
             mkdir -m 774 "$workflow_name"/"$part_name"/"$species_name"
-            echo -e "# The name of the relevant project account.\naccount: \n# Name of species being analyzed\nspecies_name: ${species_name/_/\ }\n# Directory for intermediary files.\nworking_directory_path: \n# Directory for final output files.\noutput_directory_path: " > "$workflow_name"/"$part_name"/"$species_name"/"$(species_abbreviation "$species_name")".config.yaml
+            echo -e "# The name of the relevant project account.\naccount: EcoGenetics\n# Name of species being analyzed\nspecies_name: ${species_name/_/\ }\n# Directory for intermediary files.\nworking_directory_path: \n# Directory for final output files.\noutput_directory_path: " > "$workflow_name"/"$part_name"/"$species_name"/"$(species_abbreviation "$species_name")".config.yaml
             echo -e "#!/bin/env python3\nimport sys, os\nsys.path.insert(0, os.path.realpath('../../workflow_source/'))\nfrom workflow_source import *\n\ngwf = " > "$workflow_name"/"$part_name"/"$species_name"/workflow.py
             echo "New workflow has been created..."
         fi
