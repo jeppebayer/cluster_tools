@@ -16,7 +16,7 @@ for i in "${repository_list[@]}"; do
 	cd "$i" || echo "$i does not seems to be a directory... skipping."
 	git add .
 	git commit -m "$(date +"%d/%m-%Y")"
-	git pushh origin main
+	git push origin main
 	echo "chip"
 done
 
