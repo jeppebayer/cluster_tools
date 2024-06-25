@@ -19,7 +19,6 @@ repository_list=(
 	/faststorage/project/EcoGenetics/people/Jeppe_Bayer/old_setup
 	/faststorage/project/EcoGenetics/people/Jeppe_Bayer/population_genetics
 	/faststorage/project/EcoGenetics/general_workflows
-	/faststorage/project/EcoGenetics/utility_scripts
 )
 
 # ------------------ Usage ------------------------------------------------
@@ -59,6 +58,7 @@ check_repository() {
 }
 
 commit_and_push() {
+	echo "Repository: $i"
 	git add .
 	git commit -m "$(date +"%d/%m-%Y")"
 	git push origin main
@@ -77,7 +77,7 @@ while getopts 'cs:lh' OPTION; do
 			for i in "${repository_list[@]}"; do
 				check_direcotry "$i"
 				check_repository
-				commit_and_push
+				commit_and_push "$i"
 			done
 			exit 0
 			;;
