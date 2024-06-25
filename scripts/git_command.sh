@@ -43,7 +43,7 @@ EOF
 
 check_direcotry() {
 	if [ ! -d "$1" ]; then
-		echo "$1 does not seems to be a directory... exiting."
+		echo -e "\n$1 does not seems to be a directory... exiting."
 		exit 3
 	else
 		cd "$1"
@@ -52,13 +52,13 @@ check_direcotry() {
 
 check_repository() {
 	if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-	  echo "Error: $PWD is not a Git repository."
+	  echo -e "\nError: $PWD is not a Git repository."
 	  exit 3
 	fi
 }
 
 commit_and_push() {
-	echo "Repository: $i"
+	echo -e "\nRepository: $i"
 	git add .
 	git commit -m "$(date +"%d/%m-%Y")"
 	git push origin main
