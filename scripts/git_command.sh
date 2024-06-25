@@ -59,6 +59,10 @@ check_repository() {
 
 commit_and_push() {
 	echo -e "\nRepository: $i"
+	if [ -z "$(git status --porcelain)" ]; then
+		echo No changes to commit.
+		return
+	fi
 	git add .
 	git commit -m "$(date +"%d/%m-%Y")"
 	git push origin main
