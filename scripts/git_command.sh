@@ -19,6 +19,7 @@ repository_list=(
 	/faststorage/project/EcoGenetics/people/Jeppe_Bayer/old_setup
 	/faststorage/project/EcoGenetics/people/Jeppe_Bayer/population_genetics
 	/faststorage/project/EcoGenetics/general_workflows
+	/faststorage/project/EcoGenetics/utility_scripts
 )
 
 # ------------------ Usage ------------------------------------------------
