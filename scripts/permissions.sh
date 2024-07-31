@@ -39,7 +39,7 @@ sections["finland"]="$basepath/museomics/fastq/finland/*/*"
 sections["mreference"]="$basepath/museomics/reference_genomes/*"
 sections["assembly"]="$basepath/genome_assembly_and_annotation/*/*"
 sections["x"]="$basepath/fastq/individual_data/*/* $basepath/fastq/population_data/*/* $basepath/reference_genomes/*"
-sections["encalb"]="$basepath/Enchytraeus_albidus/fastq/* $basepath/Enchytraeus_albidus/reference_genomes/*"
+sections["encalb"]="$basepath/Enchytraeus_albidus/fastq/* $basepath/Enchytraeus_albidus/reference_genome/*"
 sections["microflora"]="$basepath/population_genetics//microflora_danica/*"
 
 declare -A status
@@ -53,7 +53,7 @@ status["finland"]="$basepath/museomics/fastq/finland/*"
 status["mreference"]="$basepath/museomics/reference_genomes"
 status["assembly"]="$basepath/genome_assembly_and_annotation/*"
 status["x"]="$basepath/faster_x_evolution/fastq/individual_data/* $basepath/faster_x_evolution/fastq/population_data/* $basepath/faster_x_evolution/reference_genomes"
-status["encalb"]="$basepath/Enchytraeus_albidus/fastq $basepath/Enchytraeus_albidus/reference_genomes"
+status["encalb"]="$basepath/Enchytraeus_albidus/fastq $basepath/Enchytraeus_albidus/reference_genome"
 status["microflora"]="$basepath/population_genetics/microflora_danica"
 
 declare -A descriptions
