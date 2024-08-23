@@ -153,18 +153,30 @@ for i in "${!sections[@]}"; do
 		if [ "$action" ]; then
 			if [ "$action" == "o" ]; then
 				for j in ${sections[$1]}; do
+					if [ ! -d "$j" ]; then
+						continue
+					fi
 					ownership "$j"
 				done
 			elif [ "$action" == "s" ]; then
 				for j in ${status[$1]}; do
+					if [ ! -d "$j" ]; then
+						continue
+					fi
 					sectionstatus "$j"
 				done
 			elif [ "$action" == "d" ]; then
 				for j in ${status[$1]}; do
+					if [ ! -d "$j" ]; then
+						continue
+					fi
 					detailedstatus "$j"
 				done
 			else
 				for j in ${sections[$1]}; do
+					if [ ! -d "$j" ]; then
+						continue
+					fi
 					$action "$j"
 				done
 			fi
