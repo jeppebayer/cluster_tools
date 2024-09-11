@@ -28,7 +28,7 @@ repository_list=(
 usage(){
 cat << EOF
 
-Usage: $(basename "$0") [-c] [-l]
+Usage: $(basename "$0") [OPTIONS]
 
 Script to minimize the amount of work to keep all repositories updated.
 
