@@ -43,7 +43,7 @@ EOF
 
 # ------------------ Functions --------------------------------------------
 
-check_direcotry() {
+check_directory() {
 	if [ ! -d "$1" ]; then
 		echo -e "\n$1 does not seems to be a directory... exiting."
 		exit 3
@@ -81,14 +81,14 @@ while getopts 'cs:lh' OPTION; do
 	case "$OPTION" in
 		c)
 			for i in "${repository_list[@]}"; do
-				check_direcotry "$i"
+				check_directory "$i"
 				check_repository
 				commit_and_push "$i"
 			done
 			exit 0
 			;;
 		s)
-			check_direcotry "${repository_list[$((OPTARG - 1))]}"
+			check_directory "${repository_list[$((OPTARG - 1))]}"
 			check_repository
 			git status
 			exit 0
