@@ -1,0 +1,17 @@
+{
+	"include": [
+		"bin",
+		"scripts"
+	],
+
+	"exclude": [
+		"**/tmp",
+		"**/.gwf",
+		"**/logs",
+		"**/__pycache__"
+	],
+
+	"ignore": [
+		
+	]
+}
